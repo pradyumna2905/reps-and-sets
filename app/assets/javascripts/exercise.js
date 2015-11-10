@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#workout-date').datepicker({ dateFormat: 'mm-dd-yy' });
+$('#workout-date').datepicker({ dateFormat: 'yy-mm-dd' });
 new Morris.Line({
     // ID of the element in which to draw the chart.
     element: 'chart',
@@ -15,7 +15,7 @@ new Morris.Line({
     xLabels: "day",
     xLabelAngle: 60,
     xLabelFormat: function (x) {
-    date_string = parseInt(x.getMonth() + 1) + "/" + x.getDate() + "/" + x.getFullYear();
+    date_string = x.getFullYear() + parseInt(x.getMonth() + 1) + "/" + x.getDate();
     return date_string;
     },
     yLabelFormat: function(y) { return y + ' min'; }
