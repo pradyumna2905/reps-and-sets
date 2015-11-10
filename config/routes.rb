@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: [:index] do
       collection do
-          post :search, to: 'dashboard#search'
+          post :search, to: 'dashboard#search[:id]'
       end
   end
 

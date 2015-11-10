@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Creating Exercise' do
     before do
-       @john = User.create(email: "john@example.com", password: "password")
+       @john = User.create(first_name: "John", last_name: "Appleseed", email: "john@example.com", password: "password")
        login_as(@john)
     end
 
@@ -15,8 +15,8 @@ RSpec.feature 'Creating Exercise' do
         expect(page).to have_link("Back")
 
         fill_in "Duration (min)", with: 70
-        fill_in "Workout Details", with: "Upper body"
-        fill_in "Activity Date", with: Date.today
+        fill_in "Workout", with: "Upper body"
+        fill_in "Workout Date", with: Date.today
 
         click_button "Create Exercise"
 
@@ -35,8 +35,8 @@ RSpec.feature 'Creating Exercise' do
         expect(page).to have_link("Back")
 
         fill_in "Duration (min)", with: nil
-        fill_in "Workout Details", with: ""
-        fill_in "Activity Date", with: ""
+        fill_in "Workout", with: ""
+        fill_in "Workout Date", with: ""
 
         click_button "Create Exercise"
 
