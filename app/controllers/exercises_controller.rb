@@ -10,6 +10,12 @@ class ExercisesController < ApplicationController
 
     end
 
+    def destroy
+        @exercise.destroy
+        flash[:danger] = "Exercise has been deleted"
+        redirect_to user_exercises_path(current_user)
+    end
+
     def new
        @exercise = current_user.exercises.new
     end
@@ -39,6 +45,8 @@ class ExercisesController < ApplicationController
             render :edit
         end
     end
+
+
         private
             def exercise_params
                params.require(:exercise).permit(:duration_in_min, :workout, :workout_date, :user_id)
