@@ -6,7 +6,6 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'autoprefixer-rails', '~> 5.2.0'
 gem 'devise', '~> 3.5.1'
 gem 'jquery-ui-rails', '5.0.5'
-gem 'sqlite3'
 gem 'will_paginate-bootstrap'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -22,6 +21,9 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
   gem 'byebug'
+  gem 'sqlite3'
+  gem 'pry'
+
 end
 
 group :development do
@@ -31,4 +33,9 @@ end
 
 group :test do
   gem 'capybara', '2.4.4'
+end
+
+group :production do
+    gem 'pg'
+    gem 'rails_12factor'
 end
